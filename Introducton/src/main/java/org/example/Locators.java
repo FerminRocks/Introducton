@@ -7,7 +7,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 import java.time.Duration;
 
 public class Locators {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         //Automation Selectors (Id,Name,CSS)
         //Implicit wait -
 
@@ -23,6 +23,25 @@ public class Locators {
         driver.findElement(By.xpath("//input[@placeholder='Name']")).sendKeys("Hola");
         driver.findElement(By.xpath("//input[@placeholder='Email']")).sendKeys("Mi amor");
         driver.findElement(By.xpath("//input[@placeholder='Phone Number']")).sendKeys("Estoy automatizando");
+        driver.findElement(By.xpath("//input[@placeholder='Email']")).clear();
+        driver.findElement(By.xpath("//input[@placeholder='Email']")).sendKeys("Test@test.com");
+        driver.findElement(By.xpath("//form/input[3]")).sendKeys("123456789");
+        driver.findElement(By.cssSelector("button.reset-pwd-btn")).click();
+        System.out.println("Validacion de error en Reset Loging");
+        System.out.println(driver.findElement(By.cssSelector("p.infoMsg")).getText());
+        driver.findElement(By.cssSelector("button[class='go-to-login-btn']")).click();
+        driver.findElement(By.cssSelector("#inputUsername")).sendKeys("rahul");
+        driver.findElement(By.cssSelector("input[type*='pass']")).sendKeys("rahulshettyacademy");
+        Thread.sleep(1000);
+        driver .findElement(By.id("chkboxOne")).click();
+        driver .findElement(By.id("chkboxTwo")).click();
+        driver.findElement(By.cssSelector("button.submit.signInBtn")).click();
+        System.out.println("Validacion de Succes message login");
+        System.out.println(driver.findElement(By.className("login-container")).getText());
+        Thread.sleep(5000);
+        driver.quit();
+
+
 
     }
 
