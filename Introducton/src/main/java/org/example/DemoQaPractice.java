@@ -9,7 +9,6 @@ public class DemoQaPractice {
 
         WebDriver driver = new EdgeDriver();
         driver.get("https://demoqa.com/");
-        driver.
 
 
     }
